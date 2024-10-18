@@ -11,7 +11,7 @@ Resources:
   PublicSubnet:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 192.168.0.0/20
+      CidrBlock: 192.168.0.0/16
       AvailabilityZone: eu-west-1a
       VpcId: !Ref VPC
       Tags:
@@ -21,9 +21,16 @@ Resources:
   PrivateSubnet:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 192.168.0.0/24
+      CidrBlock: 192.168.0.0/20
       AvailabilityZone: eu-west-1a
       VpcId: !Ref VPC
       Tags:
         - Key: Name
           Value: FridayHITT_Private_Subnet
+
+  InternetGateway:
+   Type: AWS::EC2::InternetGateway
+   Properties:
+    Tags: 
+    - Key: Name
+      Value: FridayHITT_InternetGateway
