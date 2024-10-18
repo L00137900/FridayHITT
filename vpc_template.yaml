@@ -1,9 +1,25 @@
 Resources:
   VPC:
     Type: AWS::EC2::VPC
-    Properties: 
+    Properties:
       CidrBlock: 192.168.0.0/15
       InstanceTenancy: default
       Tags:
-        -Key: Name 
-        Value: FridayHITT_PROD_VPC
+        - Key: Name
+          Value: FridayHITT_PROD_VPC
+
+  PublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: eu-west-1
+      Tags:
+        - Key: Name
+          Value: FridayHITT_Public_Subnet
+
+  PrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: eu-west-1
+      Tags:
+        - Key: Name
+          Value: FridayHITT_Private_Subnet
