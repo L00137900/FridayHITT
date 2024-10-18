@@ -29,8 +29,14 @@ Resources:
           Value: FridayHITT_Private_Subnet
 
   InternetGateway:
-   Type: AWS::EC2::InternetGateway
-   Properties:
-    Tags: 
-    - Key: Name
-      Value: FridayHITT_InternetGateway
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: FridayHITT_InternetGateway
+
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
