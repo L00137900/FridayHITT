@@ -2,6 +2,7 @@ Resources:
   PublicRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
+      Description: Public Route Table
       VpcId: !Ref VPC
       Tags:
         - Key: Name
@@ -10,6 +11,7 @@ Resources:
   PrivateRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
+      Description: Private Route Table
       VpcId: !Ref VPC
       Tags:
         - Key: Name
@@ -18,6 +20,7 @@ Resources:
   PublicRoute:
     Type: AWS::EC2::Route
     Properties:
+      Description: Public Route
       DestinationCidrBlock: 0.0.0.0/0
       RouteTableId: !Ref PublicRouteTable
       GatewayId: Ref InternetGateway
@@ -28,6 +31,7 @@ Resources:
   PrivateRoute:
     Type: AWS::EC2::Route
     Properties:
+      Description: Private Route
       DestinationCidrBlock: 0.0.0.0/0
       RouteTableId: !Ref PrivateRouteTable
       Tags:
