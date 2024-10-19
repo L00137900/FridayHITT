@@ -2,7 +2,7 @@ Resources:
   PublicRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
-      VpcId: !Ref MyVPC
+      VpcId: !Ref VPC
       Tags:
         - Key: Name
           Value: FridayHITT_Public_RouteTable
@@ -10,7 +10,7 @@ Resources:
   PrivateRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
-      VpcId: !Ref MyVPC
+      VpcId: !Ref VPC
       Tags:
         - Key: Name
           Value: FridayHITT_Private_RouteTable
@@ -20,10 +20,10 @@ Resources:
     Properties:
       DestinationCidrBlock: 0.0.0.0/0
       RouteTableId: !Ref PublicRouteTable
-      GatwayId: Ref InternetGateway
+      GatewayId: Ref InternetGateway
       Tags:
         - Key: Name
-          Value: Private_Route
+          Value: Public_Route
 
   PrivateRoute:
     Type: AWS::EC2::Route
