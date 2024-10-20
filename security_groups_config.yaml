@@ -12,7 +12,7 @@ Resources:
      Type: AWS::EC2::SecurityGroupIngress
      Properties:
       CidrIp: 0.0.0.0/0
-      Description: Allow for HTTPS inound
+      Description: Allow for HTTPS inbound for public security group
       FromPort: 443
       GroupId: !Ref PublicSecurityGroup
       IpProtocol: tcp
@@ -22,7 +22,7 @@ Resources:
    Type: AWS::EC2::SecurityGroupEgress
    Properties:
       CidrIp: 0.0.0.0/0
-      Description: Allow for HTTPS outbound
+      Description: Allow for HTTPS outbound for public security group
       FromPort: 443
       GroupId: !Ref PublicSecurityGroup
       IpProtocol: tcp
@@ -36,3 +36,23 @@ Resources:
       Tags: 
         - Key: Name
           Value: Private security group
+
+  PrivateSecurityGroupIngress:
+     Type: AWS::EC2::SecurityGroupIngress
+     Properties:
+      CidrIp: 192.168.2.0/20
+      Description: Allow for HTTPS inbound for private security group
+      FromPort: 443
+      GroupId: !Ref PrivateSecurityGroup
+      IpProtocol: tcp
+      ToPort: 443
+
+  PrivateSecurityGroupEgress:
+   Type: AWS::EC2::SecurityGroupEgress
+   Properties:
+      CidrIp: 0.0.0.0/0 
+      Description: Allow for HTTPS outbound for public security group
+      FromPort: 443
+      GroupId: !Ref PrivateSecurityGroup
+      IpProtocol: tcp
+      ToPort: 443    
