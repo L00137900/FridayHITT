@@ -7,6 +7,9 @@ Resources:
       InstanceType: t2.micro
       AvailabilityZone: eu-west-1a
       ImageId: ami-00385a401487aefa4
+      Tags: 
+        - Key: Name
+          Value: FridayHITT_Public_EC2_Instance
 
   PrivateInstance:
     Type: AWS::EC2::Instance
@@ -16,3 +19,6 @@ Resources:
       InstanceType: t2.micro
       AvailabilityZone: eu-west-1a
       ImageId: ami-00385a401487aefa4
+      Tags: 
+        - Key: Name
+          Value: FridayHITT_Private_EC2_Instance
