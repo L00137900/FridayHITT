@@ -21,7 +21,7 @@ Resources:
   PrivateSubnet:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 192.168.2.0/20
+      CidrBlock: 192.168.128.0/17
       AvailabilityZone: eu-west-1a
       VpcId: !Ref VPC
       Tags:
