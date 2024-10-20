@@ -51,7 +51,7 @@ Resources:
    Type: AWS::EC2::SecurityGroupEgress
    Properties:
       CidrIp: 0.0.0.0/0 
-      Description: Allow for HTTPS outbound for public security group
+      Description: Allow for HTTPS outbound for private security group
       FromPort: 443
       GroupId: !Ref PrivateSecurityGroup
       IpProtocol: tcp
