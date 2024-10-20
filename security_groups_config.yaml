@@ -8,6 +8,26 @@ Resources:
         - Key: Name
           Value: Public security group
 
+  PublicSecurityGroupIngress:
+     Type: AWS::EC2::SecurityGroupIngress
+     Properties:
+      CidrIp: 0.0.0.0/0
+      Description: Allow for HTTP inound
+      FromPort: 80
+      GroupId: !Ref PublicSecurityGroup
+      IpProtocol: tcp
+      ToPort: 80
+
+  PublicSecurityGroupEgress:
+   Type: AWS::EC2::SecurityGroupEgress
+   Properties:
+      CidrIp: 0.0.0.0/0
+      Description: Allow for HTTP outbound
+      FromPort: 80
+      GroupId: !Ref PublicSecurityGroup
+      IpProtocol: tcp
+      ToPort: 80
+
   PrivateSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
