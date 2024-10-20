@@ -2,7 +2,8 @@ Resources:
   PublicInstance:
     Type: AWS::EC2::Instance
     Properties: 
-      SecurityGroupIds: !Ref PublicSecurityGroup
+      SecurityGroupIds: 
+        - !Ref PublicSecurityGroup
       SubnetId: !Ref PublicSubnet
       InstanceType: t2.micro
       AvailabilityZone: eu-west-1a
@@ -14,7 +15,8 @@ Resources:
   PrivateInstance:
     Type: AWS::EC2::Instance
     Properties: 
-      SecurityGroupIds: !Ref PrivateSecurityGroup
+      SecurityGroupIds: 
+        - !Ref PrivateSecurityGroup
       SubnetId: !Ref PrivateSubnet
       InstanceType: t2.micro
       AvailabilityZone: eu-west-1a
