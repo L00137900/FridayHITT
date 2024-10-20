@@ -54,7 +54,7 @@ Resources:
       Description: Allows SSH for jump_box 
       FromPort: 22
       GroupId: !Ref PrivateSecurityGroup
-      IpProtocol: ssh
+      IpProtocol: tcp
       ToPort: 22
 
   PrivateSecurityGroupEgress:
