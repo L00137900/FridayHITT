@@ -7,3 +7,12 @@ Resources:
       InstanceType: t2.micro
       AvailabilityZone: eu-west-1a
       ImageId: ami-00385a401487aefa4
+
+  PrivateInstance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      SecurityGroupIds: !Ref PrivateSecurityGroup
+      SubnetId: !Ref PrivateSubnet
+      InstanceType: t2.micro
+      AvailabilityZone: eu-west-1a
+      ImageId: ami-00385a401487aefa4
