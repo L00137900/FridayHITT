@@ -44,4 +44,8 @@ Resources:
   NatGateway:
     Type: AWS::EC2::NatGateway
     Properties:
+      ConnectivityType: private
       SubnetId: !Ref PrivateSubnet
+      Tags:
+        - Key: Name
+          Value: FridayHITT_NATGateway
