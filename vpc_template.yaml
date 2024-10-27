@@ -14,7 +14,7 @@ Resources:
       MapPublicIpOnLaunch: true
       CidrBlock: 192.168.1.0/17
       AvailabilityZone: eu-west-1a
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags:
         - Key: Name
           Value: FridayHITT_PROD_Public_Subnet
@@ -24,7 +24,7 @@ Resources:
     Properties:
       CidrBlock: 192.168.128.0/17
       AvailabilityZone: eu-west-1a
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags:
         - Key: Name
           Value: FridayHITT_PROD_Private_Subnet
@@ -39,7 +39,7 @@ Resources:
   VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       InternetGatewayId: !Ref InternetGateway
 
   NatGateway:

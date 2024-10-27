@@ -1,0 +1,5 @@
+Parameters:
+  FridayHITT_VPC:
+    Description: FridayHITT VPC
+    Type: String
+    Default: FridayHITT_PROD_VPC
