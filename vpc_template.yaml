@@ -11,6 +11,7 @@ Resources:
   PublicSubnet:
     Type: AWS::EC2::Subnet
     Properties:
+      MapPublicIpOnLaunch: true
       CidrBlock: 192.168.1.0/17
       AvailabilityZone: eu-west-1a
       VpcId: !Ref VPC
