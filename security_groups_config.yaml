@@ -3,7 +3,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: This is the public security group 
-      VpcId: !Ref FridayHITT_VPC
+      VpcId: !Ref VPC
       Tags: 
         - Key: Name
           Value: FridayHITT_PROD_Public_Security_Group
@@ -32,10 +32,10 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: This is the private security group 
-      VpcId: !Ref FridayHITT_VPC
+      VpcId: !Ref VPC
       Tags: 
         - Key: Name
-          Value: FridayHITT_PROD_Public_Security_Group
+          Value: FridayHITT_PROD_Private_Security_Group
 
   PrivateSecurityGroupIngressHTTPS:
      Type: AWS::EC2::SecurityGroupIngress
@@ -66,70 +66,4 @@ Resources:
       GroupId: !Ref PrivateSecurityGroup
       IpProtocol: tcp
       ToPort: 443    Resources:
-  PublicSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: This is the public security group 
-      VpcId: !Ref FridayHITT_VPC
-      Tags: 
-        - Key: Name
-          Value: FridayHITT_PROD_Public_Security_Group
-
-  PublicSecurityGroupIngress:
-     Type: AWS::EC2::SecurityGroupIngress
-     Properties:
-      CidrIp: 0.0.0.0/0 
-      Description: Allow for HTTPS inbound for public security group
-      FromPort: 443
-      GroupId: !Ref PublicSecurityGroup
-      IpProtocol: tcp
-      ToPort: 443
-
-  PublicSecurityGroupEgress:
-   Type: AWS::EC2::SecurityGroupEgress
-   Properties:
-      CidrIp: 0.0.0.0/0
-      Description: Allow for HTTPS outbound for public security group
-      FromPort: 443
-      GroupId: !Ref PublicSecurityGroup
-      IpProtocol: tcp
-      ToPort: 443
-
-  PrivateSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: This is the private security group 
-      VpcId: !Ref FridayHITT_VPC
-      Tags: 
-        - Key: Name
-          Value: FridayHITT_PROD_Private_Security_Group
-
-  PrivateSecurityGroupIngressHTTPS:
-     Type: AWS::EC2::SecurityGroupIngress
-     Properties:
-      CidrIp: 192.168.128.0/17
-      Description: Allow for HTTPS inbound for private security group
-      FromPort: 443
-      GroupId: !Ref PrivateSecurityGroup
-      IpProtocol: tcp
-      ToPort: 443
-
-  PrivateSecurityGroupIngressSSH:
-     Type: AWS::EC2::SecurityGroupIngress
-     Properties:
-      CidrIp: 192.168.128.0/17
-      Description: Allows SSH for jump_box 
-      FromPort: 22
-      GroupId: !Ref PrivateSecurityGroup
-      IpProtocol: tcp
-      ToPort: 22
-
-  PrivateSecurityGroupEgress:
-   Type: AWS::EC2::SecurityGroupEgress
-   Properties:
-      CidrIp: 0.0.0.0/0 
-      Description: Allow for HTTPS outbound for private security group
-      FromPort: 443
-      GroupId: !Ref PrivateSecurityGroup
-      IpProtocol: tcp
-      ToPort: 443    
+ 
