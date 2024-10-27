@@ -3,7 +3,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: This is the public security group 
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags: 
         - Key: Name
           Value: FridayHITT_PROD_Public_Security_Group
@@ -32,7 +32,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: This is the private security group 
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags: 
         - Key: Name
           Value: FridayHITT_PROD_Public_Security_Group
@@ -70,7 +70,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: This is the public security group 
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags: 
         - Key: Name
           Value: FridayHITT_PROD_Public_Security_Group
@@ -99,7 +99,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: This is the private security group 
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags: 
         - Key: Name
           Value: FridayHITT_PROD_Private_Security_Group

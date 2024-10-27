@@ -2,7 +2,7 @@ Resources:
   PublicRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags:
         - Key: Name
           Value: FridayHITT_PROD_Public_RouteTable
@@ -10,7 +10,7 @@ Resources:
   PrivateRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
-      VpcId: !Ref VPC
+      VpcId: !Ref FridayHITT_VPC
       Tags:
         - Key: Name
           Value: FridayHITT_PROD_Private_RouteTable
