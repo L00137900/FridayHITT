@@ -102,12 +102,12 @@ Resources:
       VpcId: !Ref VPC
       Tags: 
         - Key: Name
-          Value: FridayHITT_PROD_Public_Security_Group
+          Value: FridayHITT_PROD_Private_Security_Group
 
   PrivateSecurityGroupIngressHTTPS:
      Type: AWS::EC2::SecurityGroupIngress
      Properties:
-      CidrIp: 192.168.2.0/20
+      CidrIp: 192.168.128.0/17
       Description: Allow for HTTPS inbound for private security group
       FromPort: 443
       GroupId: !Ref PrivateSecurityGroup
@@ -117,7 +117,7 @@ Resources:
   PrivateSecurityGroupIngressSSH:
      Type: AWS::EC2::SecurityGroupIngress
      Properties:
-      CidrIp: 192.168.2.0/20
+      CidrIp: 192.168.128.0/17
       Description: Allows SSH for jump_box 
       FromPort: 22
       GroupId: !Ref PrivateSecurityGroup
