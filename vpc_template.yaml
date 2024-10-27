@@ -17,7 +17,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: FridayHITT_Public_Subnet
+          Value: FridayHITT_PROD_Public_Subnet
 
   PrivateSubnet:
     Type: AWS::EC2::Subnet
@@ -27,14 +27,14 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: FridayHITT_Private_Subnet
+          Value: FridayHITT_PROD_Private_Subnet
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
         - Key: Name
-          Value: FridayHITT_InternetGateway
+          Value: FridayHITT_PROD_InternetGateway
 
   VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
@@ -49,4 +49,4 @@ Resources:
       SubnetId: !Ref PrivateSubnet
       Tags:
         - Key: Name
-          Value: FridayHITT_NATGateway
+          Value: FridayHITT_PROD_NATGateway
